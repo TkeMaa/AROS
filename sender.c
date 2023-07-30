@@ -34,13 +34,14 @@ int main() {
 	}
 	
 	printf("Red je spreman za prijem novih poruka!\n");
-	while (true) {
+	bool flag = true;
+	while (flag) {
 		printf("Unesite vasu poruku(unesite \"KRAJ\" za prekid unosa):\n");
 		poruka.tip = 1;
 		char buf[MAKS_TEKST];
 		fgets(buf, MAKS_TEKST, stdin);
 		if (strncmp(buf, "KRAJ", 4) == 0) {
-			break;
+			flag = false;
 		}
 		strncpy(poruka.tekst, buf, MAKS_TEKST);
 		// Ukoliko poruka nije uspesno poslata
